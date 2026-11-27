@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Passcode Lock</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Passcode Lock">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #2563eb;
+      --accent-text: #ffffff;
+      --warn-bg: #fef3c7;
+      --warn-text: #78350f;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --card: #1e293b;
+        --text: #f1f5f9;
+        --muted: #94a3b8;
+        --line: #334155;
+        --accent: #3b82f6;
+        --accent-text: #ffffff;
+        --warn-bg: #422006;
+        --warn-text: #fde68a;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: max(20px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+    }
+    main { max-width: 480px; margin: 0 auto; }
+    h1 { font-size: 1.5rem; margin: 0 0 4px; }
+    .status { color: var(--muted); margin: 0 0 20px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+    .card p { margin: 0 0 12px; }
+    .card p:last-child { margin-bottom: 0; }
+    ol { margin: 0 0 12px; padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    .muted { color: var(--muted); font-size: 0.92rem; }
+    .code, .count {
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.18em;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
+    .code { font-size: 2.8rem; margin: 6px 0 14px; }
+    .count { font-size: 2.6rem; margin: 6px 0 14px; letter-spacing: 0.04em; }
+    .label { font-size: 0.85rem; color: var(--muted); text-align: center; margin: 0; }
+    .btn {
+      display: block;
+      width: 100%;
+      min-height: 52px;
+      margin-top: 10px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--accent);
+      color: var(--accent-text);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+    .btn.secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+    .btn.hold { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+    .btn:active { opacity: 0.8; }
+    select {
+      width: 100%;
+      min-height: 48px;
+      font: inherit;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0 12px;
+      margin-top: 6px;
+    }
+    .warn {
+      background: var(--warn-bg);
+      color: var(--warn-text);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin: 0 0 16px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Passcode Lock</h1>
+    <div id="app"></div>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
